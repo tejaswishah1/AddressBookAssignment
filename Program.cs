@@ -5,10 +5,11 @@ namespace AddressBookAssignment
 {
     class Program
     {
-
-
-        static void Main(string[] args)
+       static void Main(string[] args)
         {
+
+            CsvHandler.ImplementCSVDataHandling();
+
             MultipleAddressBook collectionAddressBook = new MultipleAddressBook();
             AddressBook newAddressBook = new AddressBook();
             bool option1 = true;
