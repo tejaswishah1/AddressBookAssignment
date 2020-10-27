@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -18,14 +19,49 @@ namespace AddressBookAssignment
             details = Console.ReadLine().Split(",");
             var c1 = new Contact(details[0], details[1], details[2], details[3], details[4], details[5], details[6], details[7]);
             list.Add(c1);
+            ////Writing the Contact details in Contact text file
+            string path = @"C:\Users\HP\source\repos\AddressBookAssignment\Contact.txt";
+            if (File.Exists(path))
+            {
+                using (StreamWriter streamWriter = File.AppendText(path))
+                {
+                    streamWriter.WriteLine(c1.fName + " " + c1.lName + " " + c1.address + " " + c1.city + " " + c1.state + " " + c1.zipcode +
+                        " " + c1.phone + " " + c1.email);
+                    streamWriter.Close();
+                }
+            }
+            else
+            {
+                Console.WriteLine("No file");
+            }
         }
         public void display()
         {
 
             foreach (Contact i in list)
             {
-                Console.WriteLine("First Name:" + i.fName + " Last Name:" + i.lName + " Address:" + i.address + " City:" + i.city
+                Console.WriteLine("First Name:" + i.fName + " Last Name:" + i.lName + " Address:" + i.address + " City:" + i.city + " "
                                    + " State:" + i.state + " pincode:" + i.phone + " phone: " + i.phone + " email address:" + i.email);
+            }
+
+            //// Displaying using File Operation
+            Console.WriteLine("Displaying using File Operation");
+            string path = @"C:\Users\jayant\source\repos\Address_Book\Address_Book\Contact.txt";
+            if (File.Exists(path))
+            {
+                if (File.Exists(path))
+                {
+                    using (StreamReader sr = File.OpenText(path))
+                    {
+                        String fileData = "";
+                        while ((fileData = sr.ReadLine()) != null)
+                            Console.WriteLine((fileData));
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("No file");
             }
         }
 
@@ -95,7 +131,6 @@ namespace AddressBookAssignment
             foreach (var name in sortedList)
                 Console.WriteLine(name.zipcode);
         }
-
     }
 
 }
