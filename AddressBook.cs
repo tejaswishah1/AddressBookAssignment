@@ -50,6 +50,16 @@ namespace AddressBookAssignment
             }
             return c;
         }
+        public void Remove(string firstName)
+        {
+            foreach (Contact i in list)
+            {
+                if (i.fName == firstName)
+                {
+                    list.Remove(i);
+                }
+            }
         }
+    }
     }
 
