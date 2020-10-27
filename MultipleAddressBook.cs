@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AddressBookAssignment
 {
-    public class MultipleAddressBook
+    class MultipleAddressBook
     {
         Dictionary<string, AddressBook> collectionAddressBook = new Dictionary<string, AddressBook>();
 
@@ -22,5 +22,14 @@ namespace AddressBookAssignment
             }
             return null;
         }
+        public bool CheckDuplicateFirstName(string fName)
+        {
+            if (collectionAddressBook.ContainsKey(fName))
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }
