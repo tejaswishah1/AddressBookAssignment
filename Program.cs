@@ -5,6 +5,7 @@ namespace AddressBookAssignment
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             MultipleAddressBook collectionAddressBook = new MultipleAddressBook();
@@ -107,7 +108,8 @@ namespace AddressBookAssignment
                         }
 
                         List<Contact> list = new List<Contact>();
-                        Console.WriteLine("Enter your choice: 0.Add the data, 1.View the data, 2.Edit the contact, 3.Remove contact, 4. Go to multiple address book option, 5.Exit");
+                        Console.WriteLine("Enter your choice: 0.Add the data, 1.View the data, 2.Edit the contact, 3.Remove contact, " +
+                            "4. Go to multiple address book option, 5. Display Person Name Alphabetically, 6.Exit");
                         int choice = int.Parse(Console.ReadLine());
                         switch (choice)
                         {
@@ -134,6 +136,10 @@ namespace AddressBookAssignment
                             case 4:
                                 goto StartAddressBook;
                             case 5:
+                                newAddressBook.DiplayAlphabeticallyByPersonName();
+                                goto StartAddressBook;
+
+                            case 6:
                                 a = 0;
                                 break;
                             default:
@@ -145,8 +151,6 @@ namespace AddressBookAssignment
             }
 
         }
-
-
 
 
     }
