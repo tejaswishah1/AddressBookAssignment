@@ -50,6 +50,7 @@ namespace AddressBookAssignment
             }
             return c;
         }
+
         public void Remove(string firstName)
         {
             foreach (Contact i in list)
@@ -59,6 +60,10 @@ namespace AddressBookAssignment
                     list.Remove(i);
                 }
             }
+        }
+        public List<Contact> GetAddressBook()
+        {
+            return list;
         }
     }
     }
