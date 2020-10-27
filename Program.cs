@@ -14,7 +14,7 @@ namespace AddressBookAssignment
             {
 
                 List<Contact> list = new List<Contact>();
-                Console.WriteLine("Enter your choice: 0.Add the data, 1.View the data, 2.Edit the contact, 3.Remove contact");
+                Console.WriteLine("Enter your choice: 0.Add the data, 1.View the data, 2.Edit the contact, 3.Remove contact, 4.Exit");
                 int choice = int.Parse(Console.ReadLine());
                 AddressBook customer = new AddressBook();
                 switch (choice)
@@ -39,13 +39,13 @@ namespace AddressBookAssignment
                         first = Console.ReadLine();
                         customer.Remove(first);
                         break;
-
+                    case 4:
+                        a = 0;
+                        break;
                     default:
                         Console.WriteLine("Enter correct choice");
                         break;
                 }
-
-
             }
 
         }
